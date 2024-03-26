@@ -16,8 +16,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void activing() {
     setState(() {
-      firstDice1 = random.nextInt(2) + 1;
-      secondDice2 = random.nextInt(2) + 1;
+      firstDice1 = random.nextInt(6) + 1;
+      secondDice2 = random.nextInt(6) + 1;
     });
   }
   // int firstdice =
@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Center(child: Text('Тапшырма 5')),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (firstDice1 == 6 && secondDice2 == 6) const Text('win'),
           Padding(
@@ -54,13 +55,25 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          const SizedBox(
+            height: 30,
+          ),
           ElevatedButton.icon(
             onPressed: () {
               activing();
             },
-            icon: const Icon(Icons.tab),
+            icon: const Icon(
+              Icons.tab,
+              size: 30,
+            ),
             label: const Text('Play'),
-          ),
+            style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all(
+                const Size(100, 110),
+              ),
+              backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 219, 88, 88)),
+            ),
+          )
         ],
       ),
     );
